@@ -1,0 +1,168 @@
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    color:white;
+    font-family: 'Chelsea Market', sans-serif;
+    font-size: 30px;
+}
+section{
+    width: 100%;
+    position:relative;
+    background-color: darkcyan;
+    padding:20px;
+    height:500px;
+    box-sizing: border-box;
+    overflow: hidden; /* animatie die uitsteekt verbergen */
+}
+section:nth-child(even){
+    background-color: lightseagreen;
+}
+h1{
+    margin-bottom: 40px;
+}
+
+
+/*
+De code voor de voorbeelden staan hieronder:
+     .
+       .
+   . ;.
+    .;
+     ;;.
+   ;.;;
+   ;;;;.
+   ;;;;;
+   ;;;;;
+   ;;;;;
+   ;;;;;
+   ;;;;;
+ ..;;;;;..
+  ':::::'
+    ':`
+
+*/
+
+
+/*------------------------------ voorbeeld 1: heen en weer ---------------------------------*/
+.voorbeeld1 {
+    position:absolute;
+    animation: heenenweer; /* geef je animatie een naam */
+    animation-duration: 3s; /* hoe lang duurt de animatie */
+    animation-delay: 0s; /* heeft de animatie vertraging aan het begin of niet (in seconden) */
+    animation-iteration-count: infinite; /* hoe vaak herhalen:  infinte (oneindig) of een nummer bv. 4 */
+    animation-timing-function: ease; /* standaard beweging: linear | ease | ease-in | ease-out | ease-in-out*/
+    animation-direction: alternate; /* welke richting heeft de herhaling? normal | reverse | alternate | alternate-reverse  */
+    animation-fill-mode: forwards; /* als je animatie stopt, moet ie terug naar het begin of pauzeren op het einde? none | forwards | backwards | both */
+}
+@keyframes heenenweer { /* geef aan welke kerframes je animatie heeft */
+    from {right:0px}
+    to { right:80%}
+}
+
+/*--------------------------------- voorbeeld 2: een route ----------------------------------*/
+.voorbeeld2 {
+    position:absolute;
+    animation: route;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: normal;
+
+}
+@keyframes route { /* geef aan welke keyframes je animatie heeft */
+    0% {right:-200px; top:40px}
+    25% { right:100px; top:100px}
+    50% {right:300px; top:300px}
+    100% {right:2000px; top:0px}
+}
+
+/*--------------------------------- voorbeeld 3: groter/kleiner  ----------------------------------*/
+.voorbeeld3 {
+    position:absolute;
+    left:50%;
+    animation: groter;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+
+}
+@keyframes groter {
+    0% {transform:scale(0.8,0.8)}
+    50% {transform:scale(1.2,1.2)}
+    100% {transform:scale(0.8,0.8)}
+}
+
+/*--------------------------------- voorbeeld 4: ronddraaien ----------------------------------*/
+.voorbeeld4 {
+    position:absolute;
+    left:50%;
+    animation: draaien;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes draaien {
+    to {transform:rotate(0deg)}
+    from {transform:rotate(360deg)}
+}
+
+/*--------------------------------- voorbeeld 5: flip ----------------------------------*/
+.voorbeeld5 {
+    position:absolute;
+    left:50%;
+    animation: flip;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@keyframes flip {
+    to {transform:scaleX(1)}
+    from {transform:scaleX(-1)}
+}
+
+/*--------------------------------- voorbeeld 2: zwaaien ----------------------------------*/
+.voorbeeld6 {
+    position:absolute;
+    left:50%;
+    transform-origin: center 50%; /* hiermee kun je instellen waar vanuit die zwaait. Staat nu op midden bovenaan.  */
+    animation: zwaaien;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@keyframes zwaaien { /* geef aan welke keyframes je animatie heeft */
+    to {transform: rotate(-10deg)}
+    from {transform: rotate(10deg);}
+}
+
+
+
+
+/* ---------------------- Voorbeeld 7: Vanalles tegelijk ------------------------------------ */
+
+
+.voorbeeld7 {
+    position:absolute;
+    animation: alles;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: normal;
+}
+@keyframes alles {
+    0% {right:-200px; top:40px; transform:scale(0.5,0.5)}
+    10% { transform:scaleX(1); }
+    20% {  transform:scaleX(-1);  }
+    25% { right:100px; top:100px;}
+    50% {right:300px; top:250px; transform:scale(1.6,1.6);}
+    60% {transform:rotate(0deg)}
+    75% {transform:rotate(-360deg)}
+    100% {right:2000px; top:0px; transform:scale(0.4,0.4)}
+}
